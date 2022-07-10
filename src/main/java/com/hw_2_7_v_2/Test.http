@@ -1,0 +1,4 @@
+GET http://localhost:8080/employee/add?firstName=Ivan&Ivanov&salary=50000&departamentId=1
+
+
+
