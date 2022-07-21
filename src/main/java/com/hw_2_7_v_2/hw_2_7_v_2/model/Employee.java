@@ -12,9 +12,18 @@ public class Employee {
     @JsonProperty("lastName")
     private final String surname;
 
-    public Employee(String name, String surname) {
+    private final int departament;
+
+    private final double salary;
+
+    public Employee(String name,
+                    String surname,
+                    int departament,
+                    double salary) {
         this.name = name;
         this.surname = surname;
+        this.departament = departament;
+        this.salary = salary;
     }
 
     public String getName() {
@@ -23,6 +32,14 @@ public class Employee {
 
     public String getSurname() {
         return surname;
+    }
+
+    public int getDepartament() {
+        return departament;
+    }
+
+    public double getSalary() {
+        return salary;
     }
 
     @Override
@@ -39,12 +56,12 @@ public class Employee {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname);
+        return Objects.hash(name, surname, departament, salary);
     }
 
     @Override
     public String toString() {
-        return String.format("ФИ: %s %s", surname, name);
+        return String.format("ФИ: %s %s, отдел: %d, ЗП: %2f", surname, name, departament, salary);
     }
 
 }

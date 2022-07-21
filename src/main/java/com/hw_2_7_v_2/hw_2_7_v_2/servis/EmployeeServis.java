@@ -6,7 +6,6 @@ import com.hw_2_7_v_2.hw_2_7_v_2.exception.EmployeeStorageIsFullException;
 import com.hw_2_7_v_2.hw_2_7_v_2.model.Employee;
 import org.springframework.stereotype.Service;
 
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,8 +18,11 @@ public class EmployeeServis {
 
     private final Map<String, Employee> employees = new HashMap<>();
 
-    public Employee add(String name, String surname) {
-        Employee employee = new Employee(name, surname);
+    public Employee add(String name,
+                        String surname,
+                        int department,
+                        double salary) {
+        Employee employee = new Employee(name, surname, department, salary);
         String key = getKey(name, surname);
         if (employees.containsKey(key)) {
             throw new EmployeeAlreadyAddedException();
